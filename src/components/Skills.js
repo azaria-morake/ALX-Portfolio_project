@@ -72,29 +72,29 @@ const skillsData = [
 ];
 
 const Skills = () => {
-  const [expandedCard, setExpandedCard] = useState(null); // Track expanded card
-  const [skillsOrder, setSkillsOrder] = useState(skillsData); // Track the order of the cards
-  const skillsContainerRef = useRef(null); // Ref to the container for detecting outside clicks
-  const [showServiceRequestModal, setShowServiceRequestModal] = useState(false); // State to control the modal
+  const [expandedCard, setExpandedCard] = useState(null);
+  const [skillsOrder, setSkillsOrder] = useState(skillsData); 
+  const skillsContainerRef = useRef(null); 
+  const [showServiceRequestModal, setShowServiceRequestModal] = useState(false);
 
   // Handle card click
   const handleCardClick = (index) => {
     if (expandedCard === skillsOrder[index].title) {
-      // If clicked again, collapse it
+      
       setExpandedCard(null);
-      setSkillsOrder(skillsData); // Restore original order
+      setSkillsOrder(skillsData); 
     } else {
-      // If a different card is clicked, expand the clicked card and scroll to the top
+     
       const updatedSkills = [...skillsOrder];
-      const [clickedSkill] = updatedSkills.splice(index, 1); // Remove the clicked skill
-      updatedSkills.unshift(clickedSkill); // Move it to the top of the stack
-      setSkillsOrder(updatedSkills); // Update the order state
-      setExpandedCard(clickedSkill.title); // Set the clicked card as expanded
+      const [clickedSkill] = updatedSkills.splice(index, 1); 
+      updatedSkills.unshift(clickedSkill); 
+      setSkillsOrder(updatedSkills); 
+      setExpandedCard(clickedSkill.title);
 
-      // Scroll to the top when a new card is clicked
+      
       window.scrollTo({
         top: 0,
-        behavior: 'smooth', // Smooth scrolling
+        behavior: 'smooth',
       });
     }
   };
@@ -102,18 +102,18 @@ const Skills = () => {
   // Handle clicks outside the skills container
   const handleClickOutside = (event) => {
     if (skillsContainerRef.current && !skillsContainerRef.current.contains(event.target)) {
-      // If clicked outside the container, collapse any expanded card
+      
       setExpandedCard(null);
-      setSkillsOrder(skillsData); // Restore original order
+      setSkillsOrder(skillsData); 
     }
   };
 
-  // Handle resume download
+  
   const handleResumeDownload = () => {
     window.open('', '');
   };
 
-  // Set up and clean up event listeners for detecting outside clicks
+  
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -121,12 +121,12 @@ const Skills = () => {
     };
   }, [skillsContainerRef]);
 
-  // Open Service Request Modal
+  
   const handleOpenServiceRequest = () => {
     setShowServiceRequestModal(true);
   };
 
-  // Close Service Request Modal
+  
   const handleCloseServiceRequest = () => {
     setShowServiceRequestModal(false);
   };

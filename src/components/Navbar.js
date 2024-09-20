@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './Navbar.css'; // Ensure this includes the updated CSS
-import { Button } from 'react-bootstrap'; // For the button behavior
+import './Navbar.css';
+import { Button } from 'react-bootstrap'; 
 import Clock from './Clock'; // Import the Clock component
-import DateDisplay from './DateDisplay'; // Import the DateDisplay component
-import Weather from './Weather'; // Import the Weather component
-//import { FaClock, FaCalendarAlt, FaCloud } from 'react-icons/fa'; // Import icons for clock, date, and weather
+import DateDisplay from './DateDisplay'; 
+import Weather from './Weather'; 
+//import { FaClock, FaCalendarAlt, FaCloud } from 'react-icons/fa'; 
 
 const Navbar = () => {
   const [showSocialIcons, setShowSocialIcons] = useState(false);

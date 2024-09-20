@@ -5,10 +5,9 @@ import axios from 'axios';
 
 const ServiceRequestForm = ({ show, handleClose }) => {
   const [formData, setFormData] = useState({
-    fullName: '',    // This corresponds to "name" in Django
-    location: '',    // This will not be sent to Django as it's not in the backend view yet
-    email: '',
-    serviceType: '', // corresponds to "service_type"
+    fullName: '',    
+    location: '', 
+    serviceType: '',
     message: '',
   });
 

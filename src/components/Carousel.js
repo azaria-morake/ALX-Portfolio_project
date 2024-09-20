@@ -3,7 +3,7 @@ import './Carousel.css';
 import { Carousel } from 'react-bootstrap';
 
 const images = [
-  'azaria-morake-3.jpg',  // Replace these with your actual image URLs
+  'azaria-morake-3.jpg',  
   'azaria-morake-2.jpg',
   'azaria-morake-1.jpg'
 ];
@@ -13,7 +13,7 @@ const CarouselComponent = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Auto-slide every 3 seconds
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); 
     }, 3000);
 
     return () => clearInterval(intervalId); // Clear the interval when the component unmounts
@@ -25,8 +25,7 @@ const CarouselComponent = () => {
       {images.map((image, index) => (
         <div
           key={index}
-          className={`carousel-item ${index === currentIndex ? 'active' : ''}`}  // Show the active image
-        >
+          className={`carousel-item ${index === currentIndex ? 'active' : ''}`}   >
           <img src={image} alt={`Slide ${index}`} className="carousel-img" />
         </div>
       ))}
